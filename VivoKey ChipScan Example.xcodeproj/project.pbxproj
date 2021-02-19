@@ -1,0 +1,372 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1B34BFFC25DF9089003541AF /* chipscanlib-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 1B34BFFB25DF9089003541AF /* chipscanlib-swift */; };
+		1B34BFFE25DF930A003541AF /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B34BFFD25DF930A003541AF /* Reader.swift */; };
+		1B423AA625DB397A00E660EC /* VivoKey_ChipScan_ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B423AA525DB397A00E660EC /* VivoKey_ChipScan_ExampleApp.swift */; };
+		1B423AA825DB397A00E660EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B423AA725DB397A00E660EC /* ContentView.swift */; };
+		1B423AAA25DB397B00E660EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B423AA925DB397B00E660EC /* Assets.xcassets */; };
+		1B423AAD25DB397B00E660EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B423AAC25DB397B00E660EC /* Preview Assets.xcassets */; };
+		1B423AB525DB39D800E660EC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B423AB425DB39D800E660EC /* Model.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1B34BFFD25DF930A003541AF /* Reader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reader.swift; sourceTree = "<group>"; };
+		1B423AA225DB397A00E660EC /* VivoKey ChipScan Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VivoKey ChipScan Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B423AA525DB397A00E660EC /* VivoKey_ChipScan_ExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VivoKey_ChipScan_ExampleApp.swift; sourceTree = "<group>"; };
+		1B423AA725DB397A00E660EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1B423AA925DB397B00E660EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1B423AAC25DB397B00E660EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1B423AAE25DB397B00E660EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B423AB425DB39D800E660EC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		1B423AB625DB400600E660EC /* VivoKey ChipScan Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "VivoKey ChipScan Example.entitlements"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1B423A9F25DB397A00E660EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B34BFFC25DF9089003541AF /* chipscanlib-swift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1B423A9925DB397A00E660EC = {
+			isa = PBXGroup;
+			children = (
+				1B423AA425DB397A00E660EC /* VivoKey ChipScan Example */,
+				1B423AA325DB397A00E660EC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1B423AA325DB397A00E660EC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1B423AA225DB397A00E660EC /* VivoKey ChipScan Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1B423AA425DB397A00E660EC /* VivoKey ChipScan Example */ = {
+			isa = PBXGroup;
+			children = (
+				1B423AB625DB400600E660EC /* VivoKey ChipScan Example.entitlements */,
+				1B423AA525DB397A00E660EC /* VivoKey_ChipScan_ExampleApp.swift */,
+				1B423AB425DB39D800E660EC /* Model.swift */,
+				1B34BFFD25DF930A003541AF /* Reader.swift */,
+				1B423AA725DB397A00E660EC /* ContentView.swift */,
+				1B423AA925DB397B00E660EC /* Assets.xcassets */,
+				1B423AAE25DB397B00E660EC /* Info.plist */,
+				1B423AAB25DB397B00E660EC /* Preview Content */,
+			);
+			path = "VivoKey ChipScan Example";
+			sourceTree = "<group>";
+		};
+		1B423AAB25DB397B00E660EC /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1B423AAC25DB397B00E660EC /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1B423AA125DB397A00E660EC /* VivoKey ChipScan Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1B423AB125DB397B00E660EC /* Build configuration list for PBXNativeTarget "VivoKey ChipScan Example" */;
+			buildPhases = (
+				1B423A9E25DB397A00E660EC /* Sources */,
+				1B423A9F25DB397A00E660EC /* Frameworks */,
+				1B423AA025DB397A00E660EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "VivoKey ChipScan Example";
+			packageProductDependencies = (
+				1B34BFFB25DF9089003541AF /* chipscanlib-swift */,
+			);
+			productName = "VivoKey ChipScan Example";
+			productReference = 1B423AA225DB397A00E660EC /* VivoKey ChipScan Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1B423A9A25DB397A00E660EC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					1B423AA125DB397A00E660EC = {
+						CreatedOnToolsVersion = 12.5;
+					};
+				};
+			};
+			buildConfigurationList = 1B423A9D25DB397A00E660EC /* Build configuration list for PBXProject "VivoKey ChipScan Example" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1B423A9925DB397A00E660EC;
+			packageReferences = (
+				1B34BFFA25DF9089003541AF /* XCRemoteSwiftPackageReference "chipscanlib-ios" */,
+			);
+			productRefGroup = 1B423AA325DB397A00E660EC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1B423AA125DB397A00E660EC /* VivoKey ChipScan Example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1B423AA025DB397A00E660EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B423AAD25DB397B00E660EC /* Preview Assets.xcassets in Resources */,
+				1B423AAA25DB397B00E660EC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1B423A9E25DB397A00E660EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B423AB525DB39D800E660EC /* Model.swift in Sources */,
+				1B423AA825DB397A00E660EC /* ContentView.swift in Sources */,
+				1B34BFFE25DF930A003541AF /* Reader.swift in Sources */,
+				1B423AA625DB397A00E660EC /* VivoKey_ChipScan_ExampleApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1B423AAF25DB397B00E660EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1B423AB025DB397B00E660EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1B423AB225DB397B00E660EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "VivoKey ChipScan Example/VivoKey ChipScan Example.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"VivoKey ChipScan Example/Preview Content\"";
+				DEVELOPMENT_TEAM = QP344H6US3;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "VivoKey ChipScan Example/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vivokey.VivoKey-ChipScan-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1B423AB325DB397B00E660EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "VivoKey ChipScan Example/VivoKey ChipScan Example.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"VivoKey ChipScan Example/Preview Content\"";
+				DEVELOPMENT_TEAM = QP344H6US3;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "VivoKey ChipScan Example/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vivokey.VivoKey-ChipScan-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1B423A9D25DB397A00E660EC /* Build configuration list for PBXProject "VivoKey ChipScan Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B423AAF25DB397B00E660EC /* Debug */,
+				1B423AB025DB397B00E660EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1B423AB125DB397B00E660EC /* Build configuration list for PBXNativeTarget "VivoKey ChipScan Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B423AB225DB397B00E660EC /* Debug */,
+				1B423AB325DB397B00E660EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1B34BFFA25DF9089003541AF /* XCRemoteSwiftPackageReference "chipscanlib-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/VivoKey/chipscanlib-ios.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1B34BFFB25DF9089003541AF /* chipscanlib-swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1B34BFFA25DF9089003541AF /* XCRemoteSwiftPackageReference "chipscanlib-ios" */;
+			productName = "chipscanlib-swift";
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 1B423A9A25DB397A00E660EC /* Project object */;
+}

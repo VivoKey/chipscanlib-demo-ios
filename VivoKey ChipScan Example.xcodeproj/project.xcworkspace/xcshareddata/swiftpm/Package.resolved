@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
+        "state": {
+          "branch": null,
+          "revision": "eaf6e622dd41b07b251d8f01752eab31bc811493",
+          "version": "5.4.1"
+        }
+      },
+      {
+        "package": "chipscanlib-swift",
+        "repositoryURL": "https://github.com/VivoKey/chipscanlib-ios.git",
+        "state": {
+          "branch": "master",
+          "revision": "02ff89f18ff41ada8e4ad63e45e5224731915184",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
