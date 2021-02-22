@@ -6,14 +6,20 @@
 //
 
 import SwiftUI
-import chipscanlib_swift
+import ChipscanlibSwift
+
 
 struct ContentView: View {
 
    @EnvironmentObject var reader: Reader
 
-    var body: some View {
-      VStack {
+   @State var setKey: String = "Key 1"
+   @State var setValue: String = "Value 1"
+
+   @State var getKey: String = "Key 1"
+
+   var body: some View {
+      ScrollView {
 
          VStack {
             Text("VivoKey ChipScan Library")
@@ -53,20 +59,108 @@ struct ContentView: View {
             .cornerRadius(10)
             .padding()
          Spacer()
+
+
+
+
+
+         VStack {
+            HStack {
+               Text("Set Key:")
+               //                  .padding()
+               TextField("Result:", text: $setKey)
+                  .textFieldStyle(RoundedBorderTextFieldStyle())
+                  //                  .padding()
+                  .foregroundColor(.black)
+               Spacer()
+            }
+            HStack {
+               Text("Set Value:")
+               //                  .padding()
+               TextField("Result:", text: $setValue)
+                  .textFieldStyle(RoundedBorderTextFieldStyle())
+                  .foregroundColor(.black)
+               //                  .padding()
+               Spacer()
+            }
+            HStack {
+               Text("Message:")
+               //                  .padding()
+               Text(reader.setResultMessage)
+               //                  .padding()
+               Spacer()
+            }
+            Button("Set Value for Key", action: beginSet)
+               .padding()
+               .background(Color("darkBlue"))
+               .cornerRadius(10)
+            //               .padding()
+            Spacer()
+         }
+         .padding(.horizontal)
+
+
+         VStack {
+            HStack {
+               Text("Get Key:")
+               //                  .padding()
+               TextField("Result:", text: $setKey)
+                  .textFieldStyle(RoundedBorderTextFieldStyle())
+                  //                  .padding()
+                  .foregroundColor(.black)
+               Spacer()
+            }
+            HStack {
+               Text("Get Value:")
+               //                  .padding()
+               Text(reader.gotValue)
+                  .textFieldStyle(RoundedBorderTextFieldStyle())
+               //                  .padding()
+               Spacer()
+            }
+            HStack {
+               Text("Message:")
+               //                  .padding()
+               Text(reader.getResultMessage)
+               //                  .padding()
+               Spacer()
+            }
+            Button("Get Value for Key", action: beginGet)
+               .padding()
+               .background(Color("darkBlue"))
+               .cornerRadius(10)
+            //               .padding()
+            Spacer()
+         }
+         .padding(.horizontal)
+
+
+
+
+
+
       }
       .background(Color("backgroundBlue").ignoresSafeArea(.all))
       .foregroundColor(.white)
-    }
+   }
 
    func beginScan() {
       reader.beginScan()
+   }
+
+   func beginSet() {
+      reader.beginSet(key: setKey, value: setValue)
+   }
+
+   func beginGet() {
+      reader.beginGet(key: getKey)
    }
 }
 
 struct ContentView_Previews: PreviewProvider {
    static let reader = Reader()
-    static var previews: some View {
-        ContentView()
+   static var previews: some View {
+      ContentView()
          .environmentObject(reader)
-    }
+   }
 }

@@ -19,6 +19,16 @@ class Reader: NSObject, NFCTagReaderSessionDelegate, ObservableObject {
 
    let vivoAuth: VivoAuthenticator = VivoAuthenticator(apikey: "d9e65600606720a68293b06acc2ceab2b91a7651f9650377173d6e21c7d9")
 
+
+   // Keeping Result
+   var vivoAuthResult: VivoAuthResult? = nil
+
+   // For displaying
+   @Published var setResultMessage: String = "set result message"
+   @Published var getResultMessage: String = "get result message"
+   @Published var gotValue: String = "get value result"
+
+
    override init() {
       super.init()
    }
@@ -94,7 +104,11 @@ class Reader: NSObject, NFCTagReaderSessionDelegate, ObservableObject {
             
             self.vivoAuth.setTag(receivedTag: vtag)
 
+
             self.vivoAuth.run { result in
+
+               self.vivoAuthResult = result
+
                 print("Chip ID: \(result.chipId)")
                 print("Member Type: \(result.memberType)")
                 print("Member ID: \(result.memberId)")
@@ -109,6 +123,37 @@ class Reader: NSObject, NFCTagReaderSessionDelegate, ObservableObject {
          }
       }
    }
+
+
+   // FOR KEY VALUE STORE:
+
+   func beginSet(key: String, value: String) {
+      // result from vivoAuth.run { result is saved in self.vivoAuthResult
+      // return message (success or fail) to published variable self.setResultMessage async
+
+      // Example:
+      DispatchQueue.main.async {
+         self.setResultMessage = "Success! \(Date().description)"
+      }
+
+   }
+
+
+   func beginGet(key: String) {
+      // result from vivoAuth.run { result is saved in self.vivoAuthResult
+      // return message (success or fail) to published variable self.getResultMessage async
+      // if successful, write obtained value to self.gotValue async
+
+      // Example:
+      DispatchQueue.main.async {
+         self.getResultMessage = "Success! \(Date().description)"
+         self.gotValue = "Value 1"
+      }
+   }
+
+
+
+
 }
 
 
