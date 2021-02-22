@@ -76,6 +76,9 @@ class Reader: NSObject, NFCTagReaderSessionDelegate, ObservableObject {
             self.vivoAuth.setTag(receivedTag: vtag!)
 
             self.vivoAuth.run { result in
+
+               self.vivoAuthResult = result
+
                 print("Chip ID: \(result.chipId)")
                 print("Member Type: \(result.memberType)")
                 print("Member ID: \(result.memberId)")
@@ -129,7 +132,7 @@ class Reader: NSObject, NFCTagReaderSessionDelegate, ObservableObject {
 
     func beginSet(key: String, value: String) {
         // result from vivoAuth.run { result is saved in self.vivoAuthResult
-        let kvAPI = VivoKVAPI(authres: vivoAuthResult!)
+      let kvAPI = VivoKVAPI(authres: self.vivoAuthResult!)
         kvAPI.setKV(keyvals: [key: value])
         kvAPI.runSetKV() {response in
             // return message (success or fail) to published variable self.setResultMessage async
@@ -147,7 +150,7 @@ class Reader: NSObject, NFCTagReaderSessionDelegate, ObservableObject {
         // result from vivoAuth.run { result is saved in self.vivoAuthResult
         // return message (success or fail) to published variable self.getResultMessage async
         // if successful, write obtained value to self.gotValue async
-        let kvAPI = VivoKVAPI(authres: vivoAuthResult!)
+      let kvAPI = VivoKVAPI(authres: self.vivoAuthResult!)
         kvAPI.getKV(keyvals: [key])
         kvAPI.runGetKV() {response in
             self.getResultMessage = response!.getResultCode()

@@ -104,7 +104,7 @@ struct ContentView: View {
             HStack {
                Text("Get Key:")
                //                  .padding()
-               TextField("Result:", text: $setKey)
+               TextField("Result:", text: $getKey)
                   .textFieldStyle(RoundedBorderTextFieldStyle())
                   //                  .padding()
                   .foregroundColor(.accentColor)
