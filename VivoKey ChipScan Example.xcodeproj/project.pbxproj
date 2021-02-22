@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B34BFFC25DF9089003541AF /* chipscanlib-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 1B34BFFB25DF9089003541AF /* chipscanlib-swift */; };
 		1B34BFFE25DF930A003541AF /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B34BFFD25DF930A003541AF /* Reader.swift */; };
 		1B423AA625DB397A00E660EC /* VivoKey_ChipScan_ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B423AA525DB397A00E660EC /* VivoKey_ChipScan_ExampleApp.swift */; };
 		1B423AA825DB397A00E660EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B423AA725DB397A00E660EC /* ContentView.swift */; };
 		1B423AAA25DB397B00E660EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B423AA925DB397B00E660EC /* Assets.xcassets */; };
 		1B423AAD25DB397B00E660EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B423AAC25DB397B00E660EC /* Preview Assets.xcassets */; };
 		1B423AB525DB39D800E660EC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B423AB425DB39D800E660EC /* Model.swift */; };
+		E0EB260F25E3889A006266C2 /* ChipscanlibSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E0EB260E25E3889A006266C2 /* ChipscanlibSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B34BFFC25DF9089003541AF /* chipscanlib-swift in Frameworks */,
+				E0EB260F25E3889A006266C2 /* ChipscanlibSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +96,7 @@
 			);
 			name = "VivoKey ChipScan Example";
 			packageProductDependencies = (
-				1B34BFFB25DF9089003541AF /* chipscanlib-swift */,
+				E0EB260E25E3889A006266C2 /* ChipscanlibSwift */,
 			);
 			productName = "VivoKey ChipScan Example";
 			productReference = 1B423AA225DB397A00E660EC /* VivoKey ChipScan Example.app */;
@@ -126,7 +126,7 @@
 			);
 			mainGroup = 1B423A9925DB397A00E660EC;
 			packageReferences = (
-				1B34BFFA25DF9089003541AF /* XCRemoteSwiftPackageReference "chipscanlib-ios" */,
+				E0EB260D25E3889A006266C2 /* XCRemoteSwiftPackageReference "chipscanlib-ios" */,
 			);
 			productRefGroup = 1B423AA325DB397A00E660EC /* Products */;
 			projectDirPath = "";
@@ -350,7 +350,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1B34BFFA25DF9089003541AF /* XCRemoteSwiftPackageReference "chipscanlib-ios" */ = {
+		E0EB260D25E3889A006266C2 /* XCRemoteSwiftPackageReference "chipscanlib-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/VivoKey/chipscanlib-ios.git";
 			requirement = {
@@ -361,10 +361,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1B34BFFB25DF9089003541AF /* chipscanlib-swift */ = {
+		E0EB260E25E3889A006266C2 /* ChipscanlibSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1B34BFFA25DF9089003541AF /* XCRemoteSwiftPackageReference "chipscanlib-ios" */;
-			productName = "chipscanlib-swift";
+			package = E0EB260D25E3889A006266C2 /* XCRemoteSwiftPackageReference "chipscanlib-ios" */;
+			productName = ChipscanlibSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -6,7 +6,9 @@
 //
 
 import CoreNFC
-import chipscanlib_swift
+import ChipscanlibSwift
+
+
 
 class Reader: NSObject, NFCTagReaderSessionDelegate, ObservableObject {
    var session: NFCTagReaderSession?
@@ -64,12 +66,12 @@ class Reader: NSObject, NFCTagReaderSessionDelegate, ObservableObject {
             self.vivoAuth.setTag(receivedTag: vtag!)
 
             self.vivoAuth.run { result in
-                print("Chip ID: \(result.chipid)")
-                print("Member Type: \(result.membertype)")
-                print("Member ID: \(result.memberid)")
+                print("Chip ID: \(result.chipId)")
+                print("Member Type: \(result.memberType)")
+                print("Member ID: \(result.memberId)")
                 self.chipID = tag.identifier.hexEncodedString()
-                self.memberType = result.membertype
-                self.memberID = result.memberid
+                self.memberType = result.memberType
+                self.memberID = result.memberId
                session.invalidate()
 
             }
@@ -93,12 +95,12 @@ class Reader: NSObject, NFCTagReaderSessionDelegate, ObservableObject {
             self.vivoAuth.setTag(receivedTag: vtag)
 
             self.vivoAuth.run { result in
-                print("Chip ID: \(result.chipid)")
-                print("Member Type: \(result.membertype)")
-                print("Member ID: \(result.memberid)")
+                print("Chip ID: \(result.chipId)")
+                print("Member Type: \(result.memberType)")
+                print("Member ID: \(result.memberId)")
                 self.chipID = tag.identifier.hexEncodedString()
-                self.memberType = result.membertype
-                self.memberID = result.memberid
+                self.memberType = result.memberType
+                self.memberID = result.memberId
                session.invalidate()
 
             }
