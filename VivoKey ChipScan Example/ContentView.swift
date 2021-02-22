@@ -71,7 +71,7 @@ struct ContentView: View {
                TextField("Result:", text: $setKey)
                   .textFieldStyle(RoundedBorderTextFieldStyle())
                   //                  .padding()
-                  .foregroundColor(.black)
+                  .foregroundColor(.accentColor)
                Spacer()
             }
             HStack {
@@ -79,7 +79,7 @@ struct ContentView: View {
                //                  .padding()
                TextField("Result:", text: $setValue)
                   .textFieldStyle(RoundedBorderTextFieldStyle())
-                  .foregroundColor(.black)
+                  .foregroundColor(.accentColor)
                //                  .padding()
                Spacer()
             }
@@ -107,7 +107,7 @@ struct ContentView: View {
                TextField("Result:", text: $setKey)
                   .textFieldStyle(RoundedBorderTextFieldStyle())
                   //                  .padding()
-                  .foregroundColor(.black)
+                  .foregroundColor(.accentColor)
                Spacer()
             }
             HStack {
