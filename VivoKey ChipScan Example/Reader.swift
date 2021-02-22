@@ -67,7 +67,7 @@ class Reader: NSObject, NFCTagReaderSessionDelegate, ObservableObject {
                 print("Chip ID: \(result.chipid)")
                 print("Member Type: \(result.membertype)")
                 print("Member ID: \(result.memberid)")
-                self.chipID = result.chipid
+                self.chipID = vtag!.getUid()
                 self.memberType = result.membertype
                 self.memberID = result.memberid
                session.invalidate()
