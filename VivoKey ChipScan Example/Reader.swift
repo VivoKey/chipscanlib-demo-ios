@@ -67,7 +67,7 @@ class Reader: NSObject, NFCTagReaderSessionDelegate, ObservableObject {
                 print("Chip ID: \(result.chipid)")
                 print("Member Type: \(result.membertype)")
                 print("Member ID: \(result.memberid)")
-                self.chipID = vtag!.getUid()
+                self.chipID = tag.identifier.hexEncodedString()
                 self.memberType = result.membertype
                 self.memberID = result.memberid
                session.invalidate()
@@ -96,7 +96,7 @@ class Reader: NSObject, NFCTagReaderSessionDelegate, ObservableObject {
                 print("Chip ID: \(result.chipid)")
                 print("Member Type: \(result.membertype)")
                 print("Member ID: \(result.memberid)")
-                self.chipID = vtag.getUid()
+                self.chipID = tag.identifier.hexEncodedString()
                 self.memberType = result.membertype
                 self.memberID = result.memberid
                session.invalidate()
@@ -110,3 +110,34 @@ class Reader: NSObject, NFCTagReaderSessionDelegate, ObservableObject {
 }
 
 
+extension Data {
+    struct HexEncodingOptions: OptionSet {
+        let rawValue: Int
+        static let upperCase = HexEncodingOptions(rawValue: 1 << 0)
+    }
+
+    func hexEncodedString(options: HexEncodingOptions = []) -> String {
+        let hexDigits = options.contains(.upperCase) ? "0123456789ABCDEF" : "0123456789abcdef"
+        if #available(macOS 11.0, iOS 14.0, watchOS 7.0, tvOS 14.0, *) {
+            let utf8Digits = Array(hexDigits.utf8)
+            return String(unsafeUninitializedCapacity: 2 * count) { (ptr) -> Int in
+                var p = ptr.baseAddress!
+                for byte in self {
+                    p[0] = utf8Digits[Int(byte / 16)]
+                    p[1] = utf8Digits[Int(byte % 16)]
+                    p += 2
+                }
+                return 2 * count
+            }
+        } else {
+            let utf16Digits = Array(hexDigits.utf16)
+            var chars: [unichar] = []
+            chars.reserveCapacity(2 * count)
+            for byte in self {
+                chars.append(utf16Digits[Int(byte / 16)])
+                chars.append(utf16Digits[Int(byte % 16)])
+            }
+            return String(utf16CodeUnits: chars, count: chars.count)
+        }
+    }
+}
