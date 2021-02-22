@@ -15,7 +15,6 @@ struct ContentView: View {
 
    @State var setKey: String = "Key 1"
    @State var setValue: String = "Value 1"
-
    @State var getKey: String = "Key 1"
 
    var body: some View {
@@ -29,116 +28,104 @@ struct ContentView: View {
          }
 
          VStack {
+            Text("- User Info -")
             HStack {
                Text("Tag ID:")
-                  .padding()
                Text(reader.chipID)
-                  .padding()
                Spacer()
             }
             HStack {
                Text("Result:")
-                  .padding()
                Text(reader.memberType)
-                  .padding()
                Spacer()
             }
             HStack {
                Text("Message:")
-                  .padding()
                Text(reader.memberID)
-                  .padding()
+                  .lineLimit(6)
                Spacer()
             }
          }
-         .padding(.vertical)
+         .padding()
          .background(Color.black.opacity(0.2))
-         Button("Get challenge", action: beginScan)
-            .padding()
-            .background(Color("darkBlue"))
-            .cornerRadius(10)
-            .padding()
-         Spacer()
+         HStack {
+            Button("Get Challenge", action: beginScan)
+               .padding()
+               .background(Color("darkBlue"))
+               .cornerRadius(10)
+            Button("Clear", action: clearScan)
+               .padding()
+               .background(Color("darkBlue"))
+               .cornerRadius(10)
 
-
-
-
+         }
 
          VStack {
+            Text("- SET Data -")
             HStack {
                Text("Set Key:")
-               //                  .padding()
                TextField("Result:", text: $setKey)
                   .textFieldStyle(RoundedBorderTextFieldStyle())
-                  //                  .padding()
                   .foregroundColor(.accentColor)
                Spacer()
             }
             HStack {
                Text("Set Value:")
-               //                  .padding()
                TextField("Result:", text: $setValue)
                   .textFieldStyle(RoundedBorderTextFieldStyle())
                   .foregroundColor(.accentColor)
-               //                  .padding()
                Spacer()
             }
             HStack {
                Text("Message:")
-               //                  .padding()
                Text(reader.setResultMessage)
-               //                  .padding()
                Spacer()
             }
+         }
+         .padding()
+         .background(Color.black.opacity(0.2))
+
+         HStack {
+            Spacer()
             Button("Set Value for Key", action: beginSet)
                .padding()
                .background(Color("darkBlue"))
                .cornerRadius(10)
-            //               .padding()
-            Spacer()
          }
          .padding(.horizontal)
 
-
          VStack {
+            Text("- GET Data -")
             HStack {
                Text("Get Key:")
-               //                  .padding()
                TextField("Result:", text: $getKey)
                   .textFieldStyle(RoundedBorderTextFieldStyle())
-                  //                  .padding()
                   .foregroundColor(.accentColor)
                Spacer()
             }
             HStack {
                Text("Get Value:")
-               //                  .padding()
                Text(reader.gotValue)
                   .textFieldStyle(RoundedBorderTextFieldStyle())
-               //                  .padding()
                Spacer()
             }
             HStack {
                Text("Message:")
-               //                  .padding()
                Text(reader.getResultMessage)
-               //                  .padding()
                Spacer()
             }
+         }
+         .padding()
+         .background(Color.black.opacity(0.2))
+
+         HStack {
+            Spacer()
             Button("Get Value for Key", action: beginGet)
                .padding()
                .background(Color("darkBlue"))
                .cornerRadius(10)
-            //               .padding()
-            Spacer()
          }
          .padding(.horizontal)
-
-
-
-
-
-
       }
       .background(Color("backgroundBlue").ignoresSafeArea(.all))
       .foregroundColor(.white)
@@ -148,12 +135,32 @@ struct ContentView: View {
       reader.beginScan()
    }
 
+   func clearScan() {
+      reader.vivoAuthResult = nil
+      reader.chipID = "Get Challenge First"
+      reader.memberType = "Get Challenge First"
+      reader.memberID = "Get Challenge First"
+   }
+
    func beginSet() {
-      reader.beginSet(key: setKey, value: setValue)
+      if (reader.vivoAuthResult != nil) {
+         reader.setResultMessage = "Setting Key-Value..."
+         reader.beginSet(key: setKey, value: setValue)
+      } else {
+         reader.setResultMessage = "Get Challenge First"
+      }
+
    }
 
    func beginGet() {
-      reader.beginGet(key: getKey)
+      if (reader.vivoAuthResult != nil) {
+         reader.getResultMessage = "Getting Value..."
+         reader.gotValue = "Getting Value..."
+         reader.beginGet(key: getKey)
+      } else {
+         reader.getResultMessage = "Get Challenge First"
+         reader.gotValue = "Get Challenge First"
+      }
    }
 }
 
