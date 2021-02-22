@@ -15,7 +15,7 @@ class Reader: NSObject, NFCTagReaderSessionDelegate, ObservableObject {
    @Published var memberType = "----"
    @Published var memberID = "----"
 
-   let vivoAuth: VivoAuthenticator = VivoAuthenticator(apikey: "130d3e43391e36820c82b2b8aa591b71e1d990239439bec57dc9a8056684")
+   let vivoAuth: VivoAuthenticator = VivoAuthenticator(apikey: "d9e65600606720a68293b06acc2ceab2b91a7651f9650377173d6e21c7d9")
 
    override init() {
       super.init()
@@ -26,7 +26,7 @@ class Reader: NSObject, NFCTagReaderSessionDelegate, ObservableObject {
       self.session = NFCTagReaderSession(pollingOption: [.iso14443, .iso15693], delegate: self, queue: .main)
       self.session?.alertMessage = "Hold Your iPhone Near Your VivoKey"
       self.session?.begin()
-
+      self.vivoAuth.getChallenge()
       DispatchQueue.main.async {
          self.chipID = "STARTED SCAN"
          self.memberType = "STARTED SCAN"
@@ -64,15 +64,12 @@ class Reader: NSObject, NFCTagReaderSessionDelegate, ObservableObject {
             self.vivoAuth.setTag(receivedTag: vtag!)
 
             self.vivoAuth.run { result in
-
-               DispatchQueue.main.async {
-                  print("Chip ID: \(result.chipid)")
-                  print("Member Type: \(result.membertype)")
-                  print("Member ID: \(result.memberid)")
-                  self.chipID = result.chipid
-                  self.memberType = result.membertype
-                  self.memberID = result.memberid
-               }
+                print("Chip ID: \(result.chipid)")
+                print("Member Type: \(result.membertype)")
+                print("Member ID: \(result.memberid)")
+                self.chipID = result.chipid
+                self.memberType = result.membertype
+                self.memberID = result.memberid
                session.invalidate()
 
             }
@@ -90,7 +87,21 @@ class Reader: NSObject, NFCTagReaderSessionDelegate, ObservableObject {
             }
 
             // ADD CODE HERE FOR SPARK1
+            let vtag = VivoTag(tag: tag)
+            print("tag uid: ", vtag.getUid())
+            
+            self.vivoAuth.setTag(receivedTag: vtag)
 
+            self.vivoAuth.run { result in
+                print("Chip ID: \(result.chipid)")
+                print("Member Type: \(result.membertype)")
+                print("Member ID: \(result.memberid)")
+                self.chipID = vtag.getUid()
+                self.memberType = result.membertype
+                self.memberID = result.memberid
+               session.invalidate()
+
+            }
 
 
          }
