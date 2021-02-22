@@ -125,31 +125,37 @@ class Reader: NSObject, NFCTagReaderSessionDelegate, ObservableObject {
    }
 
 
-   // FOR KEY VALUE STORE:
+    // FOR KEY VALUE STORE:
 
-   func beginSet(key: String, value: String) {
-      // result from vivoAuth.run { result is saved in self.vivoAuthResult
-      // return message (success or fail) to published variable self.setResultMessage async
+    func beginSet(key: String, value: String) {
+        // result from vivoAuth.run { result is saved in self.vivoAuthResult
+        let kvAPI = VivoKVAPI(authres: vivoAuthResult!)
+        kvAPI.setKV(keyvals: [key: value])
+        kvAPI.runSetKV() {response in
+            // return message (success or fail) to published variable self.setResultMessage async
+            // Example:
+            DispatchQueue.main.async {
+                self.setResultMessage = response
+            }
+        }
+        
 
-      // Example:
-      DispatchQueue.main.async {
-         self.setResultMessage = "Success! \(Date().description)"
-      }
-
-   }
+    }
 
 
-   func beginGet(key: String) {
-      // result from vivoAuth.run { result is saved in self.vivoAuthResult
-      // return message (success or fail) to published variable self.getResultMessage async
-      // if successful, write obtained value to self.gotValue async
-
-      // Example:
-      DispatchQueue.main.async {
-         self.getResultMessage = "Success! \(Date().description)"
-         self.gotValue = "Value 1"
-      }
-   }
+    func beginGet(key: String) {
+        // result from vivoAuth.run { result is saved in self.vivoAuthResult
+        // return message (success or fail) to published variable self.getResultMessage async
+        // if successful, write obtained value to self.gotValue async
+        let kvAPI = VivoKVAPI(authres: vivoAuthResult!)
+        kvAPI.getKV(keyvals: [key])
+        kvAPI.runGetKV() {response in
+            self.getResultMessage = response!.getResultCode()
+            self.gotValue = response!.getKV()[key] ?? ""
+            
+        }
+        
+    }
 
 
 
