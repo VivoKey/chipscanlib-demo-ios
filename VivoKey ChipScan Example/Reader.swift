@@ -17,7 +17,7 @@ class Reader: NSObject, NFCTagReaderSessionDelegate, ObservableObject {
    @Published var memberType = "Get Challenge First"
    @Published var memberID = "Get Challenge First"
 
-   let vivoAuth: VivoAuthenticator = VivoAuthenticator(apikey: "d9e65600606720a68293b06acc2ceab2b91a7651f9650377173d6e21c7d9")
+   let vivoAuth: VivoAuthenticator = VivoAuthenticator(apikey: "PUT-YOUR-KEY-HERE")
 
 
    // Keeping Result
