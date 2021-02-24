@@ -73,6 +73,11 @@ class Reader: NSObject, NFCTagReaderSessionDelegate, ObservableObject {
                vtag = VivoTag(tag: tag, sub: VivoTag.APEX)
             }
 
+            if vtag == nil {
+               session.invalidate(errorMessage: "NOT A VIVOKEY?")
+               return
+            }
+
             self.vivoAuth.setTag(receivedTag: vtag!)
 
             self.vivoAuth.run { result in
@@ -126,7 +131,10 @@ class Reader: NSObject, NFCTagReaderSessionDelegate, ObservableObject {
 
    func beginSet(key: String, value: String) {
       // result from vivoAuth.run { result is saved in self.vivoAuthResult
-      let keyValueAPI = VivoKVAPI(authres: self.vivoAuthResult!)
+
+      guard let vivoKeyAuth = self.vivoAuthResult else { return }
+
+      let keyValueAPI = VivoKVAPI(authres: vivoKeyAuth)
       keyValueAPI.setKV(keyvals: [key: value])
       keyValueAPI.runSetKV() {response in
          // return message (success or fail) to published variable self.setResultMessage async
@@ -141,11 +149,14 @@ class Reader: NSObject, NFCTagReaderSessionDelegate, ObservableObject {
       // result from vivoAuth.run { result is saved in self.vivoAuthResult
       // return message (success or fail) to published variable self.getResultMessage async
       // if successful, write obtained value to self.gotValue async
-      let keyValueAPI = VivoKVAPI(authres: self.vivoAuthResult!)
+
+      guard let vivoKeyAuth = self.vivoAuthResult else { return }
+
+      let keyValueAPI = VivoKVAPI(authres: vivoKeyAuth)
       keyValueAPI.getKV(keyvals: [key])
-      keyValueAPI.runGetKV() {response in
-         self.getResultMessage = response!.getResultCode()
-         self.gotValue = response!.getKV()[key] ?? ""
+      keyValueAPI.runGetKV() { response in
+         self.getResultMessage = response?.getResultCode() ?? ""
+         self.gotValue = response?.getKV()[key] ?? ""
 
       }
    }
